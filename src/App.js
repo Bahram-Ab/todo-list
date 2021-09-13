@@ -1,6 +1,7 @@
 import "./App.css";
-import OptionsList from "./components/containers/OptionsList/OptionsList";
-import ShowContent from "./components/containers/ShowContent/ShowContent";
+import OptionsList from "./components/OptionsList/OptionsList";
+import ShowContent from "./components/ShowContent/ShowContent";
+
 function App() {
   return (
     <main className="main">
