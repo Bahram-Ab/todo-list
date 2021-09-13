@@ -1,5 +1,12 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "NotoSans";
+  font-size: 3rem;
+}
+
+@font-face {
+  font-family: "NotoSans";
+  src: url(./assets/font/NotoSansJP-Light.otf);
 }
