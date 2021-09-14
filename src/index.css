@@ -4,6 +4,7 @@
   box-sizing: border-box;
   font-family: "NotoSans";
   font-size: 1rem;
+  user-select: none;
 }
 
 @font-face {

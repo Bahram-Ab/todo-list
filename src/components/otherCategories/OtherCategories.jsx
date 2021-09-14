@@ -11,20 +11,33 @@ function OtherCategories() {
     { item: "home work", id: 2 },
   ]);
 
+  const isExists = (value) => {
+    let result = false;
+    categories.forEach((c) => {
+      if (value.toLowerCase() === c.item.toLowerCase()) {
+        result = true;
+      }
+    });
+    return result;
+  };
+
   const addCategory = () => {
-    const inputValue = inputCategory.current.value;
+    let inputValue = inputCategory.current.value;
     //validate input value
     if (inputValue.replace(/\s+/g, "") === "") {
       alert("please Enter category completely");
       inputCategory.current.value = "";
       return;
-    } else if (categories.indexOf(inputValue) > -1) {
+    } else if (isExists(inputValue)) {
       alert("this category already exist !!!");
       inputCategory.current.value = "";
       return;
     }
     //set new category
-    setCategories([...categories, { item: inputValue, id: categories.length }]);
+    let copyOFCategories = [...categories];
+    copyOFCategories.push({ item: inputValue, id: categories.length });
+    setCategories(copyOFCategories);
+    inputCategory.current.value = "";
   };
 
   const handleSubmit = (e) => {

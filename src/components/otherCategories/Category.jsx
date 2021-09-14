@@ -3,7 +3,7 @@ import styles from "./otherCategories.module.css";
 
 function Category({ categories }) {
   const EditCategoryName = (category) => {
-    if (category.length >= 20) {
+    if (category.length >= 18) {
       let editedCategory = category.substr(0, 18);
       editedCategory += "...";
       return editedCategory;

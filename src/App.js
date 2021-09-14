@@ -1,4 +1,4 @@
-import { Fragment } from "react/cjs/react.production.min";
+import { Fragment } from "react";
 import "./App.css";
 import OptionsList from "./components/OptionsList/OptionsList";
 import ShowContent from "./components/ShowContent/ShowContent";
