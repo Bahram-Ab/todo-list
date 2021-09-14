@@ -12,7 +12,7 @@ import {
 function Category({ categories }) {
   return categories.map((category) => {
     let icon;
-    switch (category) {
+    switch (category.item) {
       case "all":
         icon = <BiTask />;
         break;
