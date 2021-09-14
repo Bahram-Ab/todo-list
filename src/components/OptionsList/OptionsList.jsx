@@ -1,5 +1,6 @@
 import React from "react";
 import MainCategories from "../mainCategories/MainCategories";
+import OtherCategories from "../otherCategories/OtherCategories";
 import styles from "./optionList.module.css";
 
 function OptionsList() {
@@ -7,6 +8,7 @@ function OptionsList() {
     <section className={styles.container}>
       <h3>categories</h3>
       <MainCategories />
+      <OtherCategories />
     </section>
   );
 }

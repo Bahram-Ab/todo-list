@@ -1,13 +1,19 @@
+import { Fragment } from "react/cjs/react.production.min";
 import "./App.css";
 import OptionsList from "./components/OptionsList/OptionsList";
 import ShowContent from "./components/ShowContent/ShowContent";
 
 function App() {
   return (
-    <main className="main">
-      <OptionsList />
-      <ShowContent />
-    </main>
+    <Fragment>
+      <header>
+        <h1>todo list</h1>
+      </header>
+      <main>
+        <OptionsList />
+        <ShowContent />
+      </main>
+    </Fragment>
   );
 }
 

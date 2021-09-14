@@ -38,9 +38,9 @@ function Category({ categories }) {
         break;
     }
     return (
-      <div className={styles.category}>
+      <div className={styles.category} key={category.id}>
         {icon}
-        <span>{category}</span>
+        <span>{category.item}</span>
       </div>
     );
   });
