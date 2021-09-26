@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import DateInput from "../../common/dateInput/DateInput";
 import Modal from "../../common/modal/Modal";
 import SelectOption from "../../common/selectOption/SelectOption";
-import styles from "./newTaskModal.module.css";
+import styles from "./newTaskAndNoteModal.module.css";
 
 const NewTaskModal = ({ closeHandler }) => {
   const [title, setTitle] = useState(null);
@@ -37,6 +37,7 @@ const NewTaskModal = ({ closeHandler }) => {
   };
   const handleConfirmClicked = () => {
     alert("should be confirm");
+    closeHandler();
   };
   return (
     <Modal closeHandler={closeHandler}>
