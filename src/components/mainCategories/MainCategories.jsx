@@ -11,6 +11,7 @@ function MainCategories() {
     { item: "important", id: 4 },
     { item: "projects", id: 5 },
     { item: "notes", id: 6 },
+    { item: "expired tasks", id: 7 },
   ];
   return (
     <div className={styles.container}>

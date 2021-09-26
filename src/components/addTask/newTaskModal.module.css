@@ -1,0 +1,232 @@
+.container {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.h3 {
+  width: 40%;
+  text-align: center;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  border-bottom: 2px solid #8b5cf6;
+  letter-spacing: 1px;
+}
+.textarea {
+  opacity: 0.8;
+  display: block;
+  resize: none;
+  width: 90%;
+  background-color: #f5f3ff;
+  border-radius: 4px;
+  border: 2px solid #8b5cf6;
+  padding: 3px 10px;
+  letter-spacing: 0.5px;
+  outline: none;
+  caret-color: #8b5cf6;
+  color: #7c3aed;
+}
+
+.label,
+.selectLabel {
+  width: 90%;
+  display: inline-block;
+  font-weight: bold;
+  margin: 13px 0 10px;
+  letter-spacing: 0.5px;
+  text-transform: capitalize;
+  padding: 0 10px;
+}
+.selectLabel {
+  width: fit-content;
+}
+
+.selectGroupe {
+  margin-top: 20px;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 20px auto 0;
+  margin-right: 10px;
+}
+.flexEnd {
+  justify-content: flex-end;
+}
+
+.input {
+  opacity: 0.8;
+  display: block;
+  width: 90%;
+  background-color: #f5f3ff;
+  border-radius: 4px;
+  border: 2px solid #8b5cf6;
+  padding: 3px 10px;
+  letter-spacing: 0.5px;
+  outline: none;
+  caret-color: #8b5cf6;
+  color: #7c3aed;
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  font-weight: bold;
+  color: #a78bfa;
+  font-size: 1rem;
+  text-align: start;
+  opacity: 0.8;
+}
+
+.selectInputs {
+  /* padding: 0px; */
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.input:focus,
+.textarea:focus {
+  opacity: 1;
+  box-shadow: 0 0 3px 1px #a78bfa;
+}
+
+/* -------------------------- important Switch key -------------------------- */
+.modalFooter {
+  width: 90%;
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+  padding: 0 10px;
+}
+.switchGroupe {
+  margin-top: 0px;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.switchGroupe .label {
+  padding: 0;
+  width: 35%;
+  padding-bottom: 10px;
+}
+
+.switchBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  max-width: 100px;
+  min-width: 100px;
+  height: 100px;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+input[type="checkbox"].switch {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 60px;
+  height: 10px;
+  background: #8b5cf6;
+  border-radius: 5px;
+  position: relative;
+  outline: 0;
+  cursor: pointer;
+}
+
+input[type="checkbox"].switch:before,
+input[type="checkbox"].switch:after {
+  position: absolute;
+  content: "";
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
+}
+
+input[type="checkbox"].switch:before {
+  width: 25px;
+  height: 25px;
+  background: #ede9fe;
+  border: 5px solid #c4b5fd;
+  border-radius: 50%;
+  top: 50%;
+  left: 0;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+input[type="checkbox"].switch:after {
+  width: 15px;
+  height: 15px;
+  background: #c4b5fd;
+  border-radius: 50%;
+  top: 50%;
+  left: 10px;
+  -webkit-transform: scale(1) translateY(-50%);
+  transform: scale(1) translateY(-50%);
+  -webkit-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+}
+
+input[type="checkbox"].switch:checked:before {
+  left: calc(100% - 35px);
+  border-color: #c4b5fd;
+  background: #c4b5fd;
+}
+
+input[type="checkbox"].switch:checked:after {
+  left: 50px;
+  -webkit-transform: scale(0);
+  transform: scale(0);
+}
+
+/* ------------------------------- submit key ------------------------------- */
+.submitKey span {
+  z-index: 100;
+  letter-spacing: 1px;
+  font-weight: 550;
+  font-size: 1.1rem;
+}
+.submitKey {
+  position: relative;
+  width: 150px;
+  height: 50px;
+  align-self: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  transition: all 0.3s;
+  background-color: rgba(48, 145, 48, 0.8);
+  color: #fff;
+  box-shadow: 0 0 6px 3px rgba(48, 145, 48, 0.2);
+}
+.submitKey::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  right: 200%;
+  bottom: 0;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.2);
+  transition: all 0.3s;
+}
+.submitKey:hover::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.submitKey:hover {
+  box-shadow: 0 0 6px 4px rgba(2, 128, 2, 0.2);
+}

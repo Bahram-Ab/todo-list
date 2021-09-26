@@ -10,7 +10,6 @@ function OtherCategories() {
     { item: "developing", id: 1 },
     { item: "home work", id: 2 },
   ]);
-
   const isExists = (value) => {
     let result = false;
     categories.forEach((c) => {
@@ -34,10 +33,15 @@ function OtherCategories() {
       return;
     }
     //set new category
+    const newVal = inputValue.replace(/\s+/g, "");
     let copyOFCategories = [...categories];
-    copyOFCategories.push({ item: inputValue, id: categories.length });
+    copyOFCategories.push({
+      item: newVal,
+      id: categories.length,
+    });
     setCategories(copyOFCategories);
     inputCategory.current.value = "";
+    window.scrollTo(0, window.screen.height);
   };
 
   const handleSubmit = (e) => {

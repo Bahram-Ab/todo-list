@@ -6,7 +6,7 @@ import styles from "./optionList.module.css";
 function OptionsList() {
   return (
     <section className={styles.container}>
-      <h3>categories</h3>
+      <h3>Categories</h3>
       <MainCategories />
       <OtherCategories />
     </section>

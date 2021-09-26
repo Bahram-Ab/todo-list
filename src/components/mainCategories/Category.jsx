@@ -3,6 +3,7 @@ import styles from "./mainCategories.module.css";
 import { FaTasks } from "react-icons/fa";
 import { BiTask } from "react-icons/bi";
 import { FiRepeat, FiSun } from "react-icons/fi";
+import { MdTimerOff } from "react-icons/md";
 import {
   BsExclamationCircle,
   BsCalendar,
@@ -33,6 +34,9 @@ function Category({ categories }) {
         break;
       case "notes":
         icon = <BsPencilSquare />;
+        break;
+      case "expired tasks":
+        icon = <MdTimerOff />;
         break;
       default:
         break;
