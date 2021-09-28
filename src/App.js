@@ -2,6 +2,7 @@ import { Fragment } from "react";
 import "./App.css";
 import OptionsList from "./components/OptionsList/OptionsList";
 import ShowContent from "./components/ShowContent/ShowContent";
+import CategoryProvider from "./providers/categoryProvider";
 
 function App() {
   return (
@@ -10,8 +11,10 @@ function App() {
         <h1>todo list</h1>
       </header>
       <main>
-        <OptionsList />
-        <ShowContent />
+        <CategoryProvider>
+          <OptionsList />
+          <ShowContent />
+        </CategoryProvider>
       </main>
     </Fragment>
   );

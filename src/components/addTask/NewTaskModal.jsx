@@ -3,6 +3,7 @@ import DateInput from "../../common/dateInput/DateInput";
 import Modal from "../../common/modal/Modal";
 import SelectOption from "../../common/selectOption/SelectOption";
 import styles from "./newTaskAndNoteModal.module.css";
+import { useCategories } from "../../providers/categoryProvider";
 
 const NewTaskModal = ({ closeHandler }) => {
   const [title, setTitle] = useState(null);
@@ -10,22 +11,15 @@ const NewTaskModal = ({ closeHandler }) => {
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [selectedDate, setSelectedDate] = useState(null);
   const [isImportant, setIsImportant] = useState(false);
-  const options = [
-    { value: "chocolate", label: "Chocolate" },
-    { value: "strawberry", label: "Strawberry" },
-    { value: "vanilla", label: "Vanilla" },
-    { value: "chocolate", label: "Chocolate" },
-    { value: "strawberry", label: "Strawberry" },
-    { value: "vanilla", label: "Vanilla" },
-    { value: "vanilla", label: "Vanilla" },
-    { value: "chocolate", label: "Chocolate" },
-    { value: "strawberry", label: "Strawberry" },
-    { value: "vanilla", label: "Vanilla" },
-    { value: "vanilla", label: "Vanilla" },
-    { value: "chocolate", label: "Chocolate" },
-    { value: "strawberry", label: "Strawberry" },
-    { value: "vanilla", label: "Vanilla" },
-  ];
+  const categories = useCategories();
+  let options = [];
+  categories.map((category) => {
+    return (options = [
+      ...options,
+      { value: category.id, label: category.item },
+    ]);
+  });
+
   const handleChangeTitle = (e) => {
     setTitle(e.target.value);
   };
