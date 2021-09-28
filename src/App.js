@@ -3,6 +3,7 @@ import "./App.css";
 import OptionsList from "./components/OptionsList/OptionsList";
 import ShowContent from "./components/ShowContent/ShowContent";
 import CategoryProvider from "./providers/categoryProvider";
+import NotesProvider from "./providers/notesProvider";
 
 function App() {
   return (
@@ -11,10 +12,12 @@ function App() {
         <h1>todo list</h1>
       </header>
       <main>
-        <CategoryProvider>
-          <OptionsList />
-          <ShowContent />
-        </CategoryProvider>
+        <NotesProvider>
+          <CategoryProvider>
+            <OptionsList />
+            <ShowContent />
+          </CategoryProvider>
+        </NotesProvider>
       </main>
     </Fragment>
   );

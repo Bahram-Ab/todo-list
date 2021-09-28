@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import Modal from "../../common/modal/Modal";
+import { useNotesActions } from "../../providers/notesProvider";
 import styles from "./newTaskAndNoteModal.module.css";
 
 const NewNoteModal = ({ closeHandler }) => {
-  const [title, setTitle] = useState(null);
-  const [text, setText] = useState(null);
+  const [title, setTitle] = useState("");
+  const [text, setText] = useState("");
+  const dispatch = useNotesActions();
   const handleChangeTitle = (e) => {
     setTitle(e.target.value);
   };
@@ -12,13 +14,13 @@ const NewNoteModal = ({ closeHandler }) => {
     setText(e.target.value);
   };
   const handleConfirmClicked = () => {
-    alert("should be confirm");
+    dispatch({ type: "add", value: { title, text } });
     closeHandler();
   };
   return (
     <Modal closeHandler={closeHandler}>
       <form className={styles.container}>
-        <h3 className={styles.h3}>add your new note</h3>
+        <h3 className={styles.h3}>add new note</h3>
         <label className={styles.label} htmlFor="title">
           title :
         </label>

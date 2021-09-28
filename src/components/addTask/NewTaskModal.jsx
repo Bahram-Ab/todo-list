@@ -36,7 +36,7 @@ const NewTaskModal = ({ closeHandler }) => {
   return (
     <Modal closeHandler={closeHandler}>
       <form className={styles.container}>
-        <h3 className={styles.h3}>add your new task</h3>
+        <h3 className={styles.h3}>add new task</h3>
 
         <label className={styles.label} htmlFor="title">
           title :
