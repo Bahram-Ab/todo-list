@@ -1,9 +1,10 @@
 import { Fragment } from "react";
 import "./App.css";
 import OptionsList from "./components/OptionsList/OptionsList";
-import ShowContent from "./components/ShowContent/ShowContent";
+import MainContent from "./components/mainContent/MainContent.jsx";
 import CategoryProvider from "./providers/categoryProvider";
 import NotesProvider from "./providers/notesProvider";
+import ShowContentProvider from "./providers/showContentProvider";
 
 function App() {
   return (
@@ -14,8 +15,10 @@ function App() {
       <main>
         <NotesProvider>
           <CategoryProvider>
-            <OptionsList />
-            <ShowContent />
+            <ShowContentProvider>
+              <OptionsList />
+              <MainContent />
+            </ShowContentProvider>
           </CategoryProvider>
         </NotesProvider>
       </main>

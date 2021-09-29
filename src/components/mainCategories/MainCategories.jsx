@@ -1,8 +1,10 @@
 import React from "react";
 import styles from "./mainCategories.module.css";
 import Category from "./Category";
+import { useShowContentActions } from "../../providers/showContentProvider";
 
 function MainCategories() {
+  const dispatch = useShowContentActions();
   const categories = [
     { item: "all", id: 0 },
     { item: "routines", id: 1 },
@@ -13,9 +15,24 @@ function MainCategories() {
     { item: "notes", id: 6 },
     { item: "expired tasks", id: 7 },
   ];
+
+  const handleChooseOption = (e) => {
+    switch (e.target.textContent) {
+      case "notes":
+        dispatch({ type: "notes" });
+        break;
+
+      default:
+        break;
+    }
+  };
+
   return (
     <div className={styles.container}>
-      <Category categories={categories} />
+      <Category
+        categories={categories}
+        handleChooseOption={handleChooseOption}
+      />
     </div>
   );
 }

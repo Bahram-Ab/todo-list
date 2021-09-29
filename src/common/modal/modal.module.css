@@ -106,7 +106,7 @@
   z-index: 999;
 }
 .option:nth-child(2) {
-  color: red;
+  color: #dc2626;
 }
 .option::after {
   position: absolute;
@@ -119,7 +119,7 @@
   transition: all 0.2s;
 }
 .option:nth-child(2)::after {
-  background-color: red;
+  background-color: #dc2626;
 }
 .option:hover::after {
   position: absolute;

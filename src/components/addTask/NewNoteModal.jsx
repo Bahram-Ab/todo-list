@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import Modal from "../../common/modal/Modal";
 import { useNotesActions } from "../../providers/notesProvider";
+import { useShowContentActions } from "../../providers/showContentProvider";
 import styles from "./newTaskAndNoteModal.module.css";
 
 const NewNoteModal = ({ closeHandler }) => {
   const [title, setTitle] = useState("");
   const [text, setText] = useState("");
   const dispatch = useNotesActions();
+  const showDispatch = useShowContentActions();
   const handleChangeTitle = (e) => {
     setTitle(e.target.value);
   };
@@ -15,6 +17,7 @@ const NewNoteModal = ({ closeHandler }) => {
   };
   const handleConfirmClicked = () => {
     dispatch({ type: "add", value: { title, text } });
+    showDispatch({ type: "notes" });
     closeHandler();
   };
   return (

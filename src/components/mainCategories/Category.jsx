@@ -10,11 +10,11 @@ import {
   BsPencilSquare,
 } from "react-icons/bs";
 import { useNotes } from "../../providers/notesProvider";
-function Category({ categories }) {
+
+function Category({ handleChooseOption, categories }) {
   const notes = useNotes();
   return categories.map((category) => {
-    let icon;
-    let count;
+    let icon, count;
     switch (category.item) {
       case "all":
         icon = <BiTask />;
@@ -52,7 +52,11 @@ function Category({ categories }) {
         break;
     }
     return (
-      <div className={styles.category} key={category.id}>
+      <div
+        key={category.id}
+        className={styles.category}
+        onClick={(e) => handleChooseOption(e)}
+      >
         <div className={styles.content}>
           {icon}
           <div className={styles.itemTitle}>{category.item}</div>
