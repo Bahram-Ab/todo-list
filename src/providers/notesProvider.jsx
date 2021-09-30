@@ -17,6 +17,21 @@ const notesReducer = (state, action) => {
       });
       return copyOfNotes;
 
+    case "edit":
+      const note = action.value;
+      const index = state.findIndex((e) => e.id === note.id);
+      const updatedNote = { ...state[index] };
+      updatedNote.title = note.title;
+      updatedNote.text = note.text;
+      const copyOfState = [...state];
+      copyOfState[index] = updatedNote;
+      state = [...copyOfState];
+      return state;
+
+    case "delete":
+      const filteredState = state.filter((n) => n.id !== action.id);
+      return filteredState;
+
     default:
       return state;
   }

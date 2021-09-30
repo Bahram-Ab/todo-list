@@ -1,14 +1,10 @@
 import React, { useState } from "react";
 import Modal from "../../common/modal/Modal";
-import { useNotesActions } from "../../providers/notesProvider";
-import { useShowContentActions } from "../../providers/showContentProvider";
-import styles from "./newTaskAndNoteModal.module.css";
+import styles from "./editNotes.module.css";
 
-const NewNoteModal = ({ closeHandler }) => {
-  const [title, setTitle] = useState("");
-  const [text, setText] = useState("");
-  const noteDispatch = useNotesActions();
-  const showDispatch = useShowContentActions();
+function EditNotes({ closeHandler, preTitle, preText, handleEditNote }) {
+  const [title, setTitle] = useState(preTitle);
+  const [text, setText] = useState(preText);
   const handleChangeTitle = (e) => {
     setTitle(e.target.value);
   };
@@ -16,14 +12,14 @@ const NewNoteModal = ({ closeHandler }) => {
     setText(e.target.value);
   };
   const handleConfirmClicked = () => {
-    noteDispatch({ type: "add", value: { title, text } });
-    showDispatch({ type: "notes" });
+    handleEditNote(title, text);
     closeHandler();
   };
+
   return (
     <Modal closeHandler={closeHandler}>
       <form className={styles.container}>
-        <h3 className={styles.h3}>add new note</h3>
+        <h3 className={styles.h3}>edit note</h3>
         <label className={styles.label} htmlFor="title">
           title :
         </label>
@@ -47,10 +43,7 @@ const NewNoteModal = ({ closeHandler }) => {
           placeholder="type something ... "
           onChange={handleChangeText}
         />
-        <div
-          className={styles.modalFooter}
-          style={{ marginTop: "20px", justifyContent: "flex-end" }}
-        >
+        <div className={styles.modalFooter}>
           <div className={styles.submitKey} onClick={handleConfirmClicked}>
             <span>Confirm</span>
           </div>
@@ -58,6 +51,6 @@ const NewNoteModal = ({ closeHandler }) => {
       </form>
     </Modal>
   );
-};
+}
 
-export default NewNoteModal;
+export default EditNotes;
