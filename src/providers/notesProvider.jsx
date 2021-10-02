@@ -30,7 +30,10 @@ const notesReducer = (state, action) => {
 
     case "delete":
       const filteredState = state.filter((n) => n.id !== action.id);
-      return filteredState;
+      const fixedState = filteredState.map((e, index) => {
+        return { ...e, id: index };
+      });
+      return fixedState;
 
     default:
       return state;
