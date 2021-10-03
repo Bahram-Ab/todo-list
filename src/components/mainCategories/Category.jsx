@@ -1,6 +1,5 @@
 import React from "react";
 import styles from "./mainCategories.module.css";
-import { FaTasks } from "react-icons/fa";
 import { BiTask } from "react-icons/bi";
 import { FiRepeat, FiSun } from "react-icons/fi";
 import { MdTimerOff } from "react-icons/md";
@@ -34,10 +33,6 @@ function Category({ handleChooseOption, categories }) {
         break;
       case "important":
         icon = <BsExclamationCircle />;
-        count = 0;
-        break;
-      case "projects":
-        icon = <FaTasks />;
         count = 0;
         break;
       case "notes":

@@ -25,9 +25,9 @@ const categoryReducer = (state, action) => {
 };
 
 const CategoryProvider = ({ children }) => {
-  const [tasks, dispatch] = useReducer(categoryReducer, initialState);
+  const [category, dispatch] = useReducer(categoryReducer, initialState);
   return (
-    <categoryContext.Provider value={tasks}>
+    <categoryContext.Provider value={category}>
       <categoryContextDispatcher.Provider value={dispatch}>
         {children}
       </categoryContextDispatcher.Provider>

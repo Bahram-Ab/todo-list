@@ -4,14 +4,17 @@ import Modal from "../../common/modal/Modal";
 import SelectOption from "../../common/selectOption/SelectOption";
 import styles from "./newTaskAndNoteModal.module.css";
 import { useCategories } from "../../providers/categoryProvider";
+import { useTasksActions } from "../../providers/tasksProvider";
 
 const NewTaskModal = ({ closeHandler }) => {
-  const [title, setTitle] = useState(null);
-  const [description, setDescription] = useState(null);
-  const [selectedCategory, setSelectedCategory] = useState(null);
-  const [selectedDate, setSelectedDate] = useState(null);
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [category, setCategory] = useState(null);
+  const [deadLine, setDeadLine] = useState(null);
   const [isImportant, setIsImportant] = useState(false);
   const categories = useCategories();
+  const dispatchTasks = useTasksActions();
+
   let options = [];
   categories.map((category) => {
     return (options = [
@@ -31,6 +34,10 @@ const NewTaskModal = ({ closeHandler }) => {
   };
   const handleConfirmClicked = () => {
     alert("should be confirm");
+    dispatchTasks({
+      type: "add",
+      value: { title, description, category, deadLine, isImportant },
+    });
     closeHandler();
   };
   return (
@@ -65,14 +72,11 @@ const NewTaskModal = ({ closeHandler }) => {
         <div className={styles.selectInputs}>
           <div className={styles.selectGroupe}>
             <label className={styles.selectLabel}>task category :</label>
-            <SelectOption
-              options={options}
-              setSelectedValue={setSelectedCategory}
-            />
+            <SelectOption options={options} setSelectedValue={setCategory} />
           </div>
           <div className={`${styles.selectGroupe}  ${styles.flexEnd}`}>
             <label className={styles.selectLabel}>deadLine :</label>
-            <DateInput setSelectedValue={setSelectedDate} />
+            <DateInput setSelectedValue={setDeadLine} />
           </div>
         </div>
         <div className={styles.modalFooter}>

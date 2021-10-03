@@ -6,7 +6,7 @@ const SelectOption = ({ options, setSelectedValue }) => {
   const [selectedOption, setSelectedOption] = useState();
   const handleChange = (e) => {
     setSelectedOption(e);
-    setSelectedValue(e);
+    setSelectedValue(e.label);
   };
 
   return (

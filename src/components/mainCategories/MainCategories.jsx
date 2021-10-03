@@ -11,9 +11,8 @@ function MainCategories() {
     { item: "today", id: 2 },
     { item: "tomorrow", id: 3 },
     { item: "important", id: 4 },
-    { item: "projects", id: 5 },
-    { item: "notes", id: 6 },
-    { item: "expired tasks", id: 7 },
+    { item: "notes", id: 5 },
+    { item: "expired tasks", id: 6 },
   ];
 
   const handleChooseOption = (e) => {
