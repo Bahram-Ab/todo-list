@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useReducer } from "react";
 import { useNotes } from "./notesProvider";
-
+import { useTasks } from "./tasksProvider";
 const showContentContext = createContext();
 export const useShowContent = () => useContext(showContentContext);
 const showContentContextDispatcher = createContext();
@@ -9,12 +9,24 @@ export const useShowContentActions = () =>
 
 const ShowContentProvider = ({ children }) => {
   const notes = useNotes();
+  const tasks = useTasks();
   const initialState = { selectedOption: "all", content: [] };
   const [showContent, dispatch] = useReducer((state, action) => {
     switch (action.type) {
+      case "all":
+        return { selectedOption: "all", content: tasks };
+      case "today":
+        return { selectedOption: "today", content: "dasbvafdsb" };
+      case "tomorrow":
+        return { selectedOption: "tomorrow", content: "dasbvafdsb" };
+      case "important":
+        return { selectedOption: "important", content: "dasbvafdsb" };
+      case "expired":
+        return { selectedOption: "expired", content: "dasbvafdsb" };
+      case "routine":
+        return { selectedOption: "routine", content: "dasbvafdsb" };
       case "notes":
-        state = { selectedOption: "notes", content: notes };
-        return state;
+        return { selectedOption: "notes", content: notes };
 
       default:
         return state;

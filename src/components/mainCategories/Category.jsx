@@ -9,15 +9,17 @@ import {
   BsPencilSquare,
 } from "react-icons/bs";
 import { useNotes } from "../../providers/notesProvider";
+import { useTasks } from "../../providers/tasksProvider";
 
 function Category({ handleChooseOption, categories }) {
   const notes = useNotes();
+  const tasks = useTasks();
   return categories.map((category) => {
     let icon, count;
     switch (category.item) {
       case "all":
         icon = <BiTask />;
-        count = 0;
+        count = tasks.length;
         break;
       case "routines":
         icon = <FiRepeat />;

@@ -1,0 +1,109 @@
+.header {
+  text-shadow: 0px 0px 15px #a78bfa;
+  text-align: center;
+  width: 80%;
+  margin: 20px auto;
+  padding: 0 20px 10px;
+  letter-spacing: 1px;
+  font-size: 1.5rem;
+  border-bottom: 2px solid #5b21b6;
+  text-transform: capitalize;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.item {
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  margin: 10px 50px;
+  padding: 10px 0;
+  background-color: #c4b5fd;
+  border: 2px solid #4c1d95;
+  border-radius: 20px;
+}
+
+.description,
+.title {
+  margin: 3px 25px;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  color: #4c1d95;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  margin: 7px 25px;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.isImportant {
+  font-size: 0.7rem;
+  padding: 2px 3px;
+  margin-left: 7px;
+  border-radius: 5px;
+  color: #f5f3ff;
+  background-color: #dc2626;
+}
+
+.details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0px;
+  padding: 10px 30px;
+  background: #ddd6fe;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  text-transform: capitalize;
+}
+.deadLine {
+  width: 125px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.icon {
+  font-size: 1.3rem;
+}
+
+.footer {
+  display: flex;
+  justify-content: flex-end;
+  margin: 10px 15px 3px;
+}
+
+.deleteKey,
+.editKey {
+  width: 70px;
+  margin: 0px 10px;
+  padding: 3px 6px;
+  text-align: center;
+  text-transform: capitalize;
+  letter-spacing: 0.5px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #7c3aed;
+  background-color: #f5f3ff;
+  border: 2px solid #7c3aed;
+  border-radius: 5px;
+}
+
+.deleteKey {
+  color: #dc2626;
+  border: 2px solid #dc2626;
+}
+.editKey:hover {
+  color: #f5f3ff;
+  background-color: #7c3aed;
+}
+.deleteKey:hover {
+  color: #f5f3ff;
+  background-color: #dc2626;
+}

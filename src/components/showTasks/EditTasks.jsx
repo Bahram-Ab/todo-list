@@ -1,25 +1,25 @@
 import React, { useState } from "react";
-import DateInput from "../../common/dateInput/DateInput";
+import styles from "./editTasks.module.css";
 import Modal from "../../common/modal/Modal";
 import SelectOption from "../../common/selectOption/SelectOption";
-import styles from "./newTaskAndNoteModal.module.css";
+import DateInput from "../../common/dateInput/DateInput";
 import { useCategories } from "../../providers/categoryProvider";
-import { useTasksActions } from "../../providers/tasksProvider";
-import {
-  useShowContent,
-  useShowContentActions,
-} from "../../providers/showContentProvider";
 
-const NewTaskModal = ({ closeHandler }) => {
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-  const [category, setCategory] = useState(null);
-  const [deadLine, setDeadLine] = useState(new Date());
-  const [isImportant, setIsImportant] = useState(false);
+function EditTasks({
+  closeHandler,
+  handleEditTask,
+  preTitle,
+  preDescription,
+  preCategory,
+  preDeadLine,
+  preIsImportant,
+}) {
+  const [title, setTitle] = useState(preTitle);
+  const [description, setDescription] = useState(preDescription);
+  const [category, setCategory] = useState(preCategory);
+  const [deadLine, setDeadLine] = useState(preDeadLine);
+  const [isImportant, setIsImportant] = useState(preIsImportant);
   const categories = useCategories();
-  const showContent = useShowContent();
-  const dispatchShowContent = useShowContentActions();
-  const dispatchTasks = useTasksActions();
 
   let options = [];
   categories.map((category) => {
@@ -32,6 +32,7 @@ const NewTaskModal = ({ closeHandler }) => {
   const handleChangeTitle = (e) => {
     setTitle(e.target.value);
   };
+
   const handleChangeDescription = (e) => {
     setDescription(e.target.value);
   };
@@ -39,29 +40,9 @@ const NewTaskModal = ({ closeHandler }) => {
   const handleChangeIsImportant = () => {
     setIsImportant(!isImportant);
   };
+
   const handleConfirmClicked = () => {
-    dispatchTasks({
-      type: "add",
-      value: { title, description, category, deadLine, isImportant },
-    });
-
-    switch (showContent.selectedOption) {
-      case "all":
-      case "today":
-      case "tomorrow":
-      case "important":
-      case "expired":
-        dispatchShowContent({ type: showContent.selectedOption });
-        break;
-      case "routine":
-      case "notes":
-        dispatchShowContent({ type: "all" });
-        break;
-
-      default:
-        break;
-    }
-
+    handleEditTask(title, description, category, deadLine, isImportant);
     closeHandler();
   };
 
@@ -97,11 +78,18 @@ const NewTaskModal = ({ closeHandler }) => {
         <div className={styles.selectInputs}>
           <div className={styles.selectGroupe}>
             <label className={styles.selectLabel}>task category :</label>
-            <SelectOption options={options} setSelectedValue={setCategory} />
+            <SelectOption
+              options={options}
+              setSelectedValue={setCategory}
+              preSelected={options.find((e) => e.label === preCategory)}
+            />
           </div>
           <div className={`${styles.selectGroupe}  ${styles.flexEnd}`}>
             <label className={styles.selectLabel}>deadLine :</label>
-            <DateInput setSelectedValue={setDeadLine} />
+            <DateInput
+              setSelectedValue={setDeadLine}
+              preSelected={preDeadLine}
+            />
           </div>
         </div>
         <div className={styles.modalFooter}>
@@ -123,6 +111,6 @@ const NewTaskModal = ({ closeHandler }) => {
       </form>
     </Modal>
   );
-};
+}
 
-export default NewTaskModal;
+export default EditTasks;

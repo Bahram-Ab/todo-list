@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import Select from "react-select";
 import styles from "./selectOption.module.css";
 
-const SelectOption = ({ options, setSelectedValue }) => {
-  const [selectedOption, setSelectedOption] = useState();
+const SelectOption = ({ options, setSelectedValue, preSelected = null }) => {
+  const [selectedOption, setSelectedOption] = useState(preSelected);
   const handleChange = (e) => {
     setSelectedOption(e);
     setSelectedValue(e.label);

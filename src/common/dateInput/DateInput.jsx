@@ -6,17 +6,11 @@ import { createTheme } from "@material-ui/core";
 import { ThemeProvider } from "@material-ui/styles";
 import purple from "@material-ui/core/colors/purple";
 
-const DateInput = ({ setSelectedValue }) => {
-  const [selectedDate, setSelectedDate] = useState(new Date());
-
+const DateInput = ({ setSelectedValue, preSelected = new Date() }) => {
+  const [selectedDate, setSelectedDate] = useState(preSelected);
   const handleDateChange = (e) => {
     setSelectedDate(e);
-    const dateObj = {
-      year: e.getFullYear(),
-      month: e.getMonth() + 1,
-      day: e.getDate(),
-    };
-    setSelectedValue(dateObj);
+    setSelectedValue(e);
   };
 
   const materialTheme = createTheme({

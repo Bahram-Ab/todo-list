@@ -17,8 +17,26 @@ function MainCategories() {
 
   const handleChooseOption = (e) => {
     switch (e.target.textContent) {
+      case "all":
+        dispatch({ type: "all" });
+        break;
+      case "routine":
+        dispatch({ type: "routine" });
+        break;
+      case "today":
+        dispatch({ type: "today" });
+        break;
+      case "tomorrow":
+        dispatch({ type: "tomorrow" });
+        break;
+      case "important":
+        dispatch({ type: "important" });
+        break;
       case "notes":
         dispatch({ type: "notes" });
+        break;
+      case "expired tasks":
+        dispatch({ type: "expired" });
         break;
 
       default:
