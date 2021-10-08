@@ -6,11 +6,13 @@ import {
   useCategories,
   useCategoryActions,
 } from "../../providers/categoryProvider";
+import { useShowContentActions } from "../../providers/showContentProvider";
 
-function OtherCategories() {
+function OtherCategories({ setSelectedItem, selectedItem }) {
   const inputCategory = useRef(null);
   const categories = useCategories();
   const dispatch = useCategoryActions();
+  const dispatchShowContent = useShowContentActions();
 
   const isExists = (value) => {
     let result = false;
@@ -47,9 +49,21 @@ function OtherCategories() {
     addCategory();
   };
 
+  const handleChooseOption = (categoryName) => {
+    dispatchShowContent({
+      type: "otherCategory",
+      category: categoryName,
+    });
+    setSelectedItem(categoryName);
+  };
+
   return (
     <div className={styles.container}>
-      <Category categories={categories} />
+      <Category
+        categories={categories}
+        selectedItem={selectedItem}
+        handleChooseOption={handleChooseOption}
+      />
       <form onSubmit={handleSubmit}>
         <input
           type="text"

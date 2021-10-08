@@ -18,7 +18,12 @@ function ShowTasks({ header }) {
 
   const handleDeleteTask = (id) => {
     dispatchTasks({ type: "delete", id: id });
-    dispatchShowContent({ type: showContent.selectedOption });
+    if (showContent.selectedOption === "otherCategory")
+      dispatchShowContent({
+        type: "otherCategory",
+        category: showContent.category,
+      });
+    else dispatchShowContent({ type: showContent.selectedOption });
   };
 
   const handleEditTask = (
@@ -39,7 +44,12 @@ function ShowTasks({ header }) {
         isImportant,
       },
     });
-    dispatchShowContent({ type: showContent.selectedOption });
+    if (showContent.selectedOption === "otherCategory")
+      dispatchShowContent({
+        type: "otherCategory",
+        category: showContent.category,
+      });
+    else dispatchShowContent({ type: showContent.selectedOption });
   };
 
   const toggleEditHandler = (id) => {

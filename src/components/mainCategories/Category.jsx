@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./mainCategories.module.css";
 import { BiTask } from "react-icons/bi";
-import { FiRepeat, FiSun } from "react-icons/fi";
+import { FiSun } from "react-icons/fi";
 import { MdTimerOff } from "react-icons/md";
 import {
   BsExclamationCircle,
@@ -10,8 +10,9 @@ import {
 } from "react-icons/bs";
 import { useNotes } from "../../providers/notesProvider";
 import { useTasks } from "../../providers/tasksProvider";
+import { filterTasksBy } from "../../providers/showContentProvider";
 
-function Category({ handleChooseOption, categories }) {
+function Category({ handleChooseOption, categories, selectedItem }) {
   const notes = useNotes();
   const tasks = useTasks();
   return categories.map((category) => {
@@ -21,21 +22,17 @@ function Category({ handleChooseOption, categories }) {
         icon = <BiTask />;
         count = tasks.length;
         break;
-      case "routines":
-        icon = <FiRepeat />;
-        count = 0;
-        break;
       case "today":
         icon = <FiSun />;
-        count = 0;
+        count = filterTasksBy("today", tasks).length;
         break;
       case "tomorrow":
         icon = <BsCalendar />;
-        count = 0;
+        count = filterTasksBy("tomorrow", tasks).length;
         break;
       case "important":
         icon = <BsExclamationCircle />;
-        count = 0;
+        count = filterTasksBy("important", tasks).length;
         break;
       case "notes":
         icon = <BsPencilSquare />;
@@ -43,7 +40,7 @@ function Category({ handleChooseOption, categories }) {
         break;
       case "expired tasks":
         icon = <MdTimerOff />;
-        count = 0;
+        count = filterTasksBy("expired", tasks).length;
         break;
       default:
         break;
@@ -51,8 +48,10 @@ function Category({ handleChooseOption, categories }) {
     return (
       <div
         key={category.id}
-        className={styles.category}
-        onClick={(e) => handleChooseOption(e)}
+        className={`${styles.category} ${
+          selectedItem === category.item && styles.selected
+        }`}
+        onClick={() => handleChooseOption(category.item)}
       >
         <div className={styles.content}>
           {icon}

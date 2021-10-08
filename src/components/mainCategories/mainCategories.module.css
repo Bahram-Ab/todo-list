@@ -14,10 +14,16 @@
   border-radius: 20px;
   font-weight: 600;
 }
+
+.selected,
 .category:hover {
   background: #8b5cf6;
   color: #f5f3ff;
 }
+.category:hover {
+  opacity: 0.7;
+}
+
 .content {
   display: flex;
   align-items: center;

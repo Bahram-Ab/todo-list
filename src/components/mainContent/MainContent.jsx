@@ -24,6 +24,7 @@ function MainContent() {
       break;
 
     default:
+      contentComponent = <ShowTasks header={`${showContent.category} tasks`} />;
       break;
   }
   return (

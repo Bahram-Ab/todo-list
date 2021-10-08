@@ -53,9 +53,16 @@ const NewTaskModal = ({ closeHandler }) => {
       case "expired":
         dispatchShowContent({ type: showContent.selectedOption });
         break;
-      case "routine":
+
       case "notes":
         dispatchShowContent({ type: "all" });
+        break;
+
+      case "otherCategory":
+        dispatchShowContent({
+          type: "otherCategory",
+          category: showContent.category,
+        });
         break;
 
       default:
