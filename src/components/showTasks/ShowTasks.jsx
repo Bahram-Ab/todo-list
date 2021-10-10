@@ -7,6 +7,7 @@ import { useTasksActions } from "../../providers/tasksProvider";
 import styles from "./showTasks.module.css";
 import { MdAlarm } from "react-icons/md";
 import EditTasks from "./EditTasks";
+import { AiOutlineException } from "react-icons/ai";
 
 function ShowTasks({ header }) {
   const [toggleEdit, setToggleEdit] = useState(false);
@@ -63,48 +64,57 @@ function ShowTasks({ header }) {
     <Fragment>
       <h2 className={styles.header}>{header}</h2>
       <div className={styles.container}>
-        {showContent.content.map((task) => {
-          const dateObj = {
-            year: task.deadLine.getFullYear(),
-            month: task.deadLine.getMonth() + 1,
-            day: task.deadLine.getDate(),
-          };
+        {showContent.content.length === 0 ? (
+          <div className={styles.emptyIconContainer}>
+            <AiOutlineException className={styles.emptyIcon} />
+            <span className={styles.emptyIconText}>
+              there is no task to show
+            </span>
+          </div>
+        ) : (
+          showContent.content.map((task) => {
+            const dateObj = {
+              year: task.deadLine.getFullYear(),
+              month: task.deadLine.getMonth() + 1,
+              day: task.deadLine.getDate(),
+            };
 
-          return (
-            <div key={task.id} className={styles.item}>
-              <div className={styles.title}>
-                {task.title}
-                {task.isImportant && (
-                  <span className={styles.isImportant}>important</span>
-                )}
+            return (
+              <div key={task.id} className={styles.item}>
+                <div className={styles.title}>
+                  {task.title}
+                  {task.isImportant && (
+                    <span className={styles.isImportant}>important</span>
+                  )}
+                </div>
+                <div className={styles.description}>{task.description}</div>
+                <div className={styles.details}>
+                  <div className={styles.category}>
+                    category : {task.category ? task.category : "no category"}
+                  </div>
+                  <div className={styles.deadLine}>
+                    <MdAlarm className={styles.icon} />
+                    {`${dateObj.year} \\ ${dateObj.month} \\ ${dateObj.day}`}
+                  </div>
+                </div>
+                <div className={styles.footer}>
+                  <div
+                    className={styles.deleteKey}
+                    onClick={() => handleDeleteTask(task.id)}
+                  >
+                    delete
+                  </div>
+                  <div
+                    className={styles.editKey}
+                    onClick={() => toggleEditHandler(task.id)}
+                  >
+                    edit
+                  </div>
+                </div>
               </div>
-              <div className={styles.description}>{task.description}</div>
-              <div className={styles.details}>
-                <div className={styles.category}>
-                  category : {task.category ? task.category : "no category"}
-                </div>
-                <div className={styles.deadLine}>
-                  <MdAlarm className={styles.icon} />
-                  {`${dateObj.year} \\ ${dateObj.month} \\ ${dateObj.day}`}
-                </div>
-              </div>
-              <div className={styles.footer}>
-                <div
-                  className={styles.deleteKey}
-                  onClick={() => handleDeleteTask(task.id)}
-                >
-                  delete
-                </div>
-                <div
-                  className={styles.editKey}
-                  onClick={() => toggleEditHandler(task.id)}
-                >
-                  edit
-                </div>
-              </div>
-            </div>
-          );
-        })}
+            );
+          })
+        )}
         {toggleEdit && (
           <EditTasks
             closeHandler={toggleEditHandler}

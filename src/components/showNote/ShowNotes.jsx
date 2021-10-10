@@ -6,6 +6,7 @@ import {
 } from "../../providers/showContentProvider";
 import EditNotes from "./EditNotes";
 import styles from "./showNotes.module.css";
+import { MdSimCardAlert } from "react-icons/md";
 
 function ShowNotes() {
   const [toggleEdit, setToggleEdit] = useState(false);
@@ -36,28 +37,37 @@ function ShowNotes() {
     <Fragment>
       <h2 className={styles.header}>your notes</h2>
       <div className={styles.container}>
-        {showContent.content.map((note) => {
-          return (
-            <div key={note.id} className={styles.item}>
-              <div className={styles.title}>{note.title}</div>
-              <div className={styles.text}>{note.text}</div>
-              <div className={styles.footer}>
-                <div
-                  className={styles.deleteKey}
-                  onClick={() => handleDeleteNote(note.id)}
-                >
-                  delete
-                </div>
-                <div
-                  className={styles.editKey}
-                  onClick={() => toggleEditHandler(note.id)}
-                >
-                  edit
+        {showContent.content.length === 0 ? (
+          <div className={styles.emptyIconContainer}>
+            <MdSimCardAlert className={styles.emptyIcon} />
+            <span className={styles.emptyIconText}>
+              there is no note to show
+            </span>
+          </div>
+        ) : (
+          showContent.content.map((note) => {
+            return (
+              <div key={note.id} className={styles.item}>
+                <div className={styles.title}>{note.title}</div>
+                <div className={styles.text}>{note.text}</div>
+                <div className={styles.footer}>
+                  <div
+                    className={styles.deleteKey}
+                    onClick={() => handleDeleteNote(note.id)}
+                  >
+                    delete
+                  </div>
+                  <div
+                    className={styles.editKey}
+                    onClick={() => toggleEditHandler(note.id)}
+                  >
+                    edit
+                  </div>
                 </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })
+        )}
         {toggleEdit && (
           <EditNotes
             closeHandler={toggleEditHandler}
