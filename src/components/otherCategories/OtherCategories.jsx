@@ -7,6 +7,7 @@ import {
   useCategoryActions,
 } from "../../providers/categoryProvider";
 import { useShowContentActions } from "../../providers/showContentProvider";
+import { toast } from "react-toastify";
 
 function OtherCategories({ setSelectedItem, selectedItem }) {
   const inputCategory = useRef(null);
@@ -28,11 +29,11 @@ function OtherCategories({ setSelectedItem, selectedItem }) {
     let inputValue = inputCategory.current.value;
     //validate input value
     if (inputValue.replace(/\s+/g, "") === "") {
-      alert("please Enter category completely");
+      toast.error("Please Enter category name completely");
       inputCategory.current.value = "";
       return;
     } else if (isExists(inputValue)) {
-      alert("this category already exist !!!");
+      toast.error("this category already exist !!!");
       inputCategory.current.value = "";
       return;
     }

@@ -1,12 +1,13 @@
 .container {
-  width: calc(80% / 4);
-  min-height: 85vh;
+  width: calc((80% / 12) * 3);
+  min-height: 82vh;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   background-color: #ede9fe;
   border: 2px solid #4c1d95;
   border-radius: 20px;
+  margin-right: 4vh;
 }
 
 .container h3 {

@@ -31,7 +31,11 @@ function AddButton() {
           onClick={handleToggleBtn}
         >
           <div className={styles.content}>
-            {!toggle ? <FaPlus /> : <FaAngleDown />}
+            {!toggle ? (
+              <FaPlus className={styles.svg} />
+            ) : (
+              <FaAngleDown className={styles.svg} />
+            )}
           </div>
         </div>
         <div
@@ -39,7 +43,7 @@ function AddButton() {
           onClick={handleAddTaskClicked}
         >
           <div className={styles.content}>
-            <MdAssignment />
+            <MdAssignment className={styles.svg} />
             <span>New task</span>
           </div>
         </div>
@@ -48,7 +52,7 @@ function AddButton() {
           onClick={handleAddNoteClicked}
         >
           <div className={styles.content}>
-            <MdNoteAdd />
+            <MdNoteAdd className={styles.svg} />
             <span>New note</span>
           </div>
         </div>

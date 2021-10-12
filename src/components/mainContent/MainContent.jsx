@@ -23,13 +23,31 @@ function MainContent() {
       contentComponent = <ShowNotes />;
       break;
 
+    case "Welcome":
+      contentComponent = false;
+      break;
+
     default:
       contentComponent = <ShowTasks header={`${showContent.category} tasks`} />;
       break;
   }
   return (
     <section className={styles.container}>
-      {contentComponent}
+      {contentComponent ? (
+        contentComponent
+      ) : (
+        <div className={styles.welcomeMessageContainer}>
+          <h4 className={styles.header}>Hey Dear</h4>
+          <p className={styles.message}>
+            Welcome to our website .
+            <br /> we are so happy to choose us to help you don't waste your
+            time .
+            <br /> by adding your first task , start to have better plans and
+            better days ...
+          </p>
+          <p className={styles.footer}>Let's do it!!!</p>
+        </div>
+      )}
       <AddButton />
     </section>
   );

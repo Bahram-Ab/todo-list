@@ -47,7 +47,7 @@ export const filterTasksBy = (keyName, tasks, categoryName = "") => {
 const ShowContentProvider = ({ children }) => {
   const notes = useNotes();
   const tasks = useTasks();
-  const initialState = { selectedOption: "all", content: [] };
+  const initialState = { selectedOption: "Welcome", content: [] };
   const [showContent, dispatch] = useReducer((state, action) => {
     switch (action.type) {
       case "all":
