@@ -54,6 +54,7 @@ const NewTaskModal = ({ closeHandler }) => {
         dispatchShowContent({ type: showContent.selectedOption });
         break;
 
+      case "Welcome":
       case "notes":
         dispatchShowContent({ type: "all" });
         break;
