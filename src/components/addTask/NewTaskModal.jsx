@@ -67,6 +67,7 @@ const NewTaskModal = ({ closeHandler }) => {
         break;
 
       default:
+        dispatchShowContent({ type: "all" });
         break;
     }
 
@@ -114,7 +115,7 @@ const NewTaskModal = ({ closeHandler }) => {
         </div>
         <div className={styles.modalFooter}>
           <div className={styles.switchGroupe}>
-            <label className={styles.label}> Is it important ?</label>
+            <label className={styles.label}> Is it important</label>
             <div className={styles.switchBox}>
               <input
                 checked={isImportant}

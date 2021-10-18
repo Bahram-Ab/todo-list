@@ -5,6 +5,7 @@
   font-family: "NotoSans";
   font-size: 1rem;
   user-select: none;
+  word-wrap: break-word;
 }
 
 @font-face {

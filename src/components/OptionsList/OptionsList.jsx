@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useShowContent } from "../../providers/showContentProvider";
 import MainCategories from "../mainCategories/MainCategories";
 import OtherCategories from "../otherCategories/OtherCategories";
@@ -7,6 +7,10 @@ import styles from "./optionList.module.css";
 function OptionsList() {
   const showContent = useShowContent();
   const [selectedItem, setSelectedItem] = useState(showContent.selectedOption);
+  useEffect(() => {
+    setSelectedItem(showContent.selectedOption);
+  }, [showContent.selectedOption]);
+
   return (
     <section className={styles.container}>
       <h3>Categories</h3>

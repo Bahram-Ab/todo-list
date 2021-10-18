@@ -62,7 +62,7 @@ function ShowTasks({ header }) {
 
   return (
     <Fragment>
-      <h2 className={styles.header}>{header}</h2>
+      <p className={styles.header}>{header}</p>
       <div className={styles.container}>
         {showContent.content.length === 0 ? (
           <div className={styles.emptyIconContainer}>

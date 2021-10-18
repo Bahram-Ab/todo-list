@@ -30,6 +30,7 @@
 
 .description,
 .title {
+  padding: 2px 3px;
   width: 90%;
   margin: 3px 25px;
   font-size: 1rem;
@@ -45,6 +46,7 @@
   margin: 7px 25px;
   font-weight: bold;
   font-size: 1rem;
+  word-wrap: break-word;
 }
 
 .isImportant {

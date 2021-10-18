@@ -45,7 +45,7 @@ function MainContent() {
             <br /> by adding your first task , start to have better plans and
             better days ...
           </p>
-          <p className={styles.footer}> - Let's do it!!! - </p>
+          <p className={styles.footer}> - Let's do it !!! - </p>
         </div>
       )}
       <AddButton />

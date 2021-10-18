@@ -77,7 +77,7 @@ function EditTasks({
         />
         <div className={styles.selectInputs}>
           <div className={styles.selectGroupe}>
-            <label className={styles.selectLabel}>task category :</label>
+            <label className={styles.selectLabel}>task category</label>
             <SelectOption
               options={options}
               setSelectedValue={setCategory}
@@ -85,7 +85,7 @@ function EditTasks({
             />
           </div>
           <div className={`${styles.selectGroupe}  ${styles.flexEnd}`}>
-            <label className={styles.selectLabel}>deadLine :</label>
+            <label className={styles.selectLabel}>deadLine</label>
             <DateInput
               setSelectedValue={setDeadLine}
               preSelected={preDeadLine}
@@ -94,7 +94,7 @@ function EditTasks({
         </div>
         <div className={styles.modalFooter}>
           <div className={styles.switchGroupe}>
-            <label className={styles.label}> Is it important ?</label>
+            <label className={styles.label}> Is it important</label>
             <div className={styles.switchBox}>
               <input
                 checked={isImportant}
