@@ -45,7 +45,7 @@
   }
   100% {
     width: 50%;
-    height: 62%;
+    min-height: 62%;
     opacity: 1;
   }
 }
@@ -53,7 +53,7 @@
 @keyframes closing {
   0% {
     width: 50%;
-    height: 62%;
+    min-height: 62%;
     opacity: 1;
   }
   50% {

@@ -104,11 +104,11 @@ const NewTaskModal = ({ closeHandler }) => {
         />
         <div className={styles.selectInputs}>
           <div className={styles.selectGroupe}>
-            <label className={styles.selectLabel}>task category :</label>
+            <label className={styles.selectLabel}>task category</label>
             <SelectOption options={options} setSelectedValue={setCategory} />
           </div>
           <div className={`${styles.selectGroupe}  ${styles.flexEnd}`}>
-            <label className={styles.selectLabel}>deadLine :</label>
+            <label className={styles.selectLabel}>deadLine</label>
             <DateInput setSelectedValue={setDeadLine} />
           </div>
         </div>
